@@ -4,35 +4,19 @@
 
   <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
 
-	<style>
-		html, body{
-			margin: 0;
-			padding: 0;
-		}
-		.container{
-			margin: 0;
-			padding: 0;
-			background: black;
-			height: 100%;
-			width: 100%;
-		}
+  <link rel="stylesheet" href="css/main.css">
 
-		.square{
-			background-color: white;
-			height: 30px;
-			width: 30px;
-			margin: 10px;
-			position: absolute;
-		}
-	</style>
 </head>
 <body>
-	<div class="container">
-</div>
+	
+	<div class="body-background"></div>
+	<div class="square-container"></div>
 
+	<div class="container">
+
+	</div>
 
 <script>
-
 
 var w = window.innerWidth;
 var h = window.innerHeight;
@@ -42,25 +26,32 @@ var i = 0;
 function squareLoop() {
     setTimeout(function(){ 
 		
-		$('.container').append('<div class="square"></div>');
+		$('.square-container').append('<div class="square"></div>');
 		
 		i++
 
+		// generate a random width and height for each "pixel"
+		var widthHeight = Math.floor(Math.random() * 60); 
+
 		$('.square').each(function(){
 			if(!$(this).attr('style')){
+				//position
 				$(this).css("top", Math.floor(Math.random() * h) + "px");
 				$(this).css("right", Math.floor(Math.random() * w) + "px");
 				$(this).css("bottom", Math.floor(Math.random() * h) + "px");
 				$(this).css("left", Math.floor(Math.random() * w) + "px");
+				//width & height
+				$(this).css("width", widthHeight + "px");
+				$(this).css("height", widthHeight + "px");
 			}
 		});
 		
-
+		// how many pixels are generated
 		if(i < 100){
     		squareLoop(); 
     	}
 
-    }, 100);
+    }, 100); // how fast each pixel is displayed
 }
 
 squareLoop();
@@ -69,7 +60,6 @@ squareLoop();
 //   $('.container').append('<div class="square"></div>');
 //   //console.log( Math.floor(Math.random() * h) ); 
 // }
-
 
 </script>
 </body>
