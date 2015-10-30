@@ -6,6 +6,7 @@ html, body{
 	position: fixed;
 	margin: 0;
 	padding: 0;
+	/*background-color: transparent;*/
 	background-image: url('../images/pattern.png');
 	height: 100%;
 	width: 100%;
@@ -16,7 +17,7 @@ html, body{
 	z-index: -2;
 }
 .square{
-	background-color: #e712ab;
+	/*background-color: #e712ab;*/
 	height: 30px;
 	width: 30px;
 	margin: 10px;
@@ -31,4 +32,5 @@ html, body{
 	position: absolute;
 	top: 5vh;
 	right: 5vw;
+	display: none;
 }

@@ -23,6 +23,9 @@ var h = window.innerHeight;
 
 var i = 0;
 
+//list of colors to choose from
+var colors = ['e712ab','1364e8','e88113'];
+
 function squareLoop() {
     setTimeout(function(){ 
 		
@@ -32,6 +35,7 @@ function squareLoop() {
 
 		// generate a random width and height for each "pixel"
 		var widthHeight = Math.floor(Math.random() * 60); 
+		var randColor = colors[Math.floor(Math.random() * colors.length)];
 
 		$('.square').each(function(){
 			if(!$(this).attr('style')){
@@ -40,9 +44,13 @@ function squareLoop() {
 				$(this).css("right", Math.floor(Math.random() * w) + "px");
 				$(this).css("bottom", Math.floor(Math.random() * h) + "px");
 				$(this).css("left", Math.floor(Math.random() * w) + "px");
+
 				//width & height
 				$(this).css("width", widthHeight + "px");
 				$(this).css("height", widthHeight + "px");
+				
+				//background color
+				$(this).css("background", "#"+randColor);
 			}
 		});
 		
